@@ -834,12 +834,12 @@ EditControlInEditor(ControlID)
 		 GuiControlGet, ToFile, , %ControlID%
 		}
  
-	 FileDelete, %TmpDir%\__tmplintalistedit.txt
-	 FileAppend, %ToFile%, %TmpDir%\__tmplintalistedit.txt, UTF-8
+	 FileDelete, %TmpDir%\__tmplintalistedit.ahk
+	 FileAppend, %ToFile%, %TmpDir%\__tmplintalistedit.ahk, UTF-8
 	 If (SnippetEditor = "")
-		Run, "%TmpDir%\__tmplintalistedit.txt"
+		Run, "%TmpDir%\__tmplintalistedit.ahk"
 	 else
-		Run, "%SnippetEditor%" "%TmpDir%\__tmplintalistedit.txt"
+		Run, "%SnippetEditor%" "%TmpDir%\__tmplintalistedit.ahk"
 	 WinWait, __tmplintalistedit
 	 SetTimer, CheckEdit, 500, On
 	 Return
