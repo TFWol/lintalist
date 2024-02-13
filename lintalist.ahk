@@ -371,11 +371,14 @@ GUIStartOmni:
 OmniSearch:=1
 GuiStart: ; build GUI
 
-; https://github.com/lintalist/lintalist/issues/247
-; https://www.autohotkey.com/boards/viewtopic.php?f=76&t=119231 
-KeyWait % ReturnKeyWaitKey(A_ThisHotkey), % "T" StartSearchHotkeyTimeOut / 1000
-If !ErrorLevel
- Return
+If (StartSearchHotkeyTimeOut > 0)
+	{
+	 ; https://github.com/lintalist/lintalist/issues/247
+	 ; https://www.autohotkey.com/boards/viewtopic.php?f=76&t=119231 
+	 KeyWait % ReturnKeyWaitKey(A_ThisHotkey), % "T" StartSearchHotkeyTimeOut / 1000
+	 If !ErrorLevel
+		Return
+	}
 	
 If Statistics
 	 Stats("SearchGui")
