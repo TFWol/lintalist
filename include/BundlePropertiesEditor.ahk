@@ -32,6 +32,8 @@ If (EditMode = "")
 Gui, 81:+Owner
 Gui, 81:Font,s10
 Gui, 81:Add, Text, x20 y10, Note: New and modified Bundle properties are only stored when you press SAVE.
+Gui, 81:Add, Button, xp+640 y10 h30 w30 gRunScript, Spy
+
 Gui, 81:Add, GroupBox, x260 y40 w420 h390, Properties:
 Gui, 81:Add, Text, x270  y62         , Name:
 Gui, 81:Add, Edit, xp+80 y60 w300 h20 vName hwndhEditName, %Name%
@@ -125,6 +127,10 @@ GuiControl, , Description , %Description%
 GuiControl, , Author      , %Author%
 GuiControl, , TitleMatch  , %TitleMatch% 
 
+Return
+
+RunScript:
+    Run, "C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe" "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 Return
 
 81Help:
