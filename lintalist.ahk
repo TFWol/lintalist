@@ -1184,7 +1184,7 @@ UpdateLVColWidth()
 		 factor:=155
 		}
 	 else
-		LV_ModifyCol(6,70)
+		LV_ModifyCol(6,75)
 	 LV_ModifyCol(5,0) ; hidden Bundle_Index column, always hide
 	 WinGetPos , , , AvailableWidth, , %AppWindow%
 	 If (AvailableWidth = "")
