@@ -632,7 +632,7 @@ Loop, parse, SearchBundles, CSV
 			 SearchThis:=Snippet[Bundle,A_BundleIndex,ColumnID]
 			 If (ColumnID = 6)
 				SearchThis:=MenuName_%Bundle% " " Description_%Bundle%
-			}
+			} ; " " Author_%Bundle% ; if you want to add author to the search string too
 		 else
 			{
 			 If (ColumnSearch = "") ; could be set in hidden Ini setting
