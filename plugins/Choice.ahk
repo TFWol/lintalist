@@ -47,6 +47,7 @@ if (InStr(Clip, "_R_") > 0) {
 	InitialFilter := ""	
 }
 
+
 Gosub, PreviewWindowPosition
 
 MakeChoice:
@@ -72,8 +73,8 @@ MakeChoice:
 		 Gui, 10:+Owner +AlwaysOnTop +Resize +MinSize -SysMenu
 		 Gui, 10:Default
 		 Gui, 10:font, s%FontSize%
-		 Gui, 10:Add, Edit,     x5 y5 w400 vChoiceFilterText gChoiceFilterText hwndHED1,
-		 Gui, 10:Add, ListBox,  xp yp+30 w400 R10 vItem gChoiceMouseOK, %PluginOptions%
+		 Gui, 10:Add, Edit,     x5 y5 w1000 vChoiceFilterText gChoiceFilterText hwndHED1, 
+		 Gui, 10:Add, ListBox,  xp yp+30 w1000 R10 vItem gChoiceMouseOK, %PluginOptions%
 		 Gui, 10:Add, button,   w70       vChoiceCancel gCancelChoice, &Cancel
 		 Gui, 10:Add, button,   xp+75 w80 vChoiceRandom gChoiceRandom, &Random
 		 Gui, 10:Add, Checkbox, xp+90  yp-5 w106 vChoiceAutoCenter gChoiceAutoCenter, &Auto Center
@@ -100,7 +101,7 @@ MakeChoice:
 			{
 			 GuiControl, Disable, Edit1
 			 GuiControl, Hide, Edit1
-			 Gui, 10:Add, Text, x5 y10 w400, %ChoiceQuestion%
+			 Gui, 10:Add, Text, x5 y10 w1000, %ChoiceQuestion%
 			}
 		 Gui, 10:Font,
 		 GuiCheckXYPos()
@@ -110,13 +111,13 @@ MakeChoice:
 				{
 				 Gui, 10:Show, hide w410 x%ChoiceX% y%ChoiceY%, Select and press enter
 				 WinMove, Select and press enter, , %ChoiceX%, %ChoiceY%, %ChoiceWidth%, %ChoiceHeight%
-				 Gui, 10:Show
+				 Gui, 10:Show, w1000
 				}
 			 Catch
-				Gui, 10:Show, w410 Center, Select and press enter - Lintalist (choice plugin)
+				Gui, 10:Show, w1010 Center, Select and press enter - Lintalist (choice plugin)
 			}
 		 else
-			Gui, 10:Show, w410 Center, Select and press enter - Lintalist (choice plugin)
+			Gui, 10:Show, w1010 Center, Select and press enter - Lintalist (choice plugin)
 		 ControlGet, item, List, Focused, ListBox1,  Select and press enter
 		 If InStr(item,"`n") ; we may get all the results of the "typing to filter" so assume we want first result
 			item:=Trim(StrSplit(item,"`n").1,"`n`r")
