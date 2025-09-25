@@ -1,4 +1,4 @@
-﻿/*
+/*
 Plugin        : Choice [Standard Lintalist]
 Purpose       : Make a selection from a list [part of code also placed in lintalist.ahk and used to allow users to select a bundle]
 Version       : 2.2
@@ -34,18 +34,6 @@ If (ChoiceAutoCenter = "")
 	 Gosub, ChoiceAutoCenterWrite
 	}
 
-; if contains _R_ then set variable
-if (InStr(Clip, "_R_") > 0) {
-	InitialFilter:=LTrim(StrSplit(PluginOptions,"|").1," ?`t")
-	If (RegExMatch(InitialFilter,"^\s*[\!]") or RegExMatch(StrSplit(PluginOptions,"|").1,"^\s*[\!]"))
-	{
-		InitialFilter := LTrim(InitialFilter,"!")
-		InitialFilter := StrReplace(InitialFilter, "_R_", "")
-	}
-
-} else {
-	InitialFilter := ""	
-}
 
 Gosub, PreviewWindowPosition
 
@@ -80,8 +68,6 @@ MakeChoice:
 		 Gui, 10:Add, Checkbox, xp+110 yp   w130 vChoiceInput gChoiceInput, &Use as [[Input]]
 		 ;Gui, 10:Add, button  , xp+130 yp   w130 vPreview gTogglePreview, 👁 View
 		 Gui, 10:Add, button,   xp yp default vChoiceOK gChoiceOK hidden, OK
-
-		 GuiControl, 10:, ChoiceFilterText, %InitialFilter%
 
 		 Gui, PreviewChoice:Destroy
 		 Gui, PreviewChoice:Default
