@@ -31,6 +31,8 @@ If (EditMode = "")
 
 Gui, 81:Font,s10
 Gui, 81:Add, Text, x20 y10, Note: New and modified Bundle properties are only stored when you press SAVE.
+Gui, 81:Add, Button, xp+640 y10 h30 w30 gRunScript, Spy
+
 Gui, 81:Add, GroupBox, x260 y40 w420 h390, Properties:
 Gui, 81:Add, Text, x270  y62         , Name:
 Gui, 81:Add, Edit, xp+80 y60 w300 h20 vName hwndhEditName, %Name%
@@ -46,7 +48,7 @@ Gui, 81:Add, Text, xp    y235 , Author of Bundle (not mandatory)
 
 Gui, 81:Add, Text, x270  y272     , TitleMatch:
 Gui, 81:Add, Edit, xp+80 y270 w300 h20 vTitleMatch, %TitleMatch%
-Gui, 81:Add, Text, xp    y295 , Comma separated list of partial window title matches.`n(not mandatory)`n`nDo not use Wildcards.`nExample: .txt,.doc is OK, *.txt,*.doc is not.`n`nSee documentation for more information`n(also about ahk_exe).
+Gui, 81:Add, Text, xp    y295 , Comma separated list (no spaces after commas) of`n partial window title matches (not mandatory)`n`nDo not use Wildcards.`nExample: .txt,.doc is OK, *.txt,*.doc is not.`n`nSee documentation for more information`n(also about ahk_exe).
 ;Gui, 81:Add, Text, x270  y380 ,
 MenuName_HitListClean:="||"
 Loop, parse, MenuName_HitList, |
@@ -124,6 +126,10 @@ GuiControl, , Description , %Description%
 GuiControl, , Author      , %Author%
 GuiControl, , TitleMatch  , %TitleMatch%
 
+Return
+
+RunScript:
+    Run, "C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe" "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 Return
 
 81Help:
