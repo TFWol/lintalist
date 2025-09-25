@@ -1,4 +1,4 @@
-﻿; LintaList Include
+; LintaList Include
 ; Purpose: Bundle & Snippet Editor
 ; Version: 1.11
 ;
@@ -913,6 +913,7 @@ EditControlInEditor(ControlID)
 		 RunEditor:=""
 		}
 	 DisableEditButtons(ButtonID)
+
 	 WinWait, __tmplintalistedit
 	 If ExternalEditorMonitorStatus
 		{
