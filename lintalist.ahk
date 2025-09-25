@@ -884,7 +884,15 @@ if QueryDelimiter
 	 Text2:=RegExReplace(Text2,"iU)\[\[query[12]{0,1}=([^[]*)\]\]",Trim(Query[1]))
 	 Script:=RegExReplace(Script,"iU)\[\[query[12]{0,1}=([^[]*)\]\]",Trim(Query[2]))
 
-	 StringReplace, Text1, Text1, [[Query]] , % Trim(Query["full"]), All
+	 if InStr(Text1, "[[Resolve=")  ; check if "[[Resolve=" is found in Text1
+		 {
+			 Text1:=RegExReplace(Text1,"i)\[\[Resolve=\[\[Query(\d*)\]\]\]\]", "_R_" . Trim(Query["full"]))
+		 }
+		 else
+		 {
+			 StringReplace, Text1, Text1, [[Query]], % Trim(Query["full"]), All
+		 }
+
 	 StringReplace, Text1, Text1, [[Query1]], % Trim(Query[1]), All
 	 StringReplace, Text1, Text1, [[Query2]], % Trim(Query[2]), All
 
